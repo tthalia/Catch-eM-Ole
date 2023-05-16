@@ -91,9 +91,9 @@ button{
   overflow: hidden;
   position: relative;
   background-image: url('../assets/hole.png');
-  background-size: contain;
+/*   background-size: contain; */
   width: 120px;
-  height: 100px;
+  height: 93px;
   display: flex;
   flex-wrap: wrap;
   background-repeat: no-repeat;
