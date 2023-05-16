@@ -263,16 +263,13 @@ function stopGame(){
 
 
 
-function startGame(){
-  //set
-  setDuration(time);
+function startGame() {
+  setDuration(10);
+  startTimer();
   showUp();
   clearScore();
-setEventListeners();
-startTimer();
-return "game started";
-
- 
+  setEventListeners();
+  return "game started";
 }
 
 startButton.addEventListener("click", startGame);
