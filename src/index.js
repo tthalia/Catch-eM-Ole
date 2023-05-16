@@ -6,7 +6,7 @@ const scoreBoard = document.querySelectorAll('#score')
 const score = document.querySelector('#score')
 const timerDisplay = document.querySelector('#timer');
 
-let time = 15;
+let time = 0;
 let timer;
 let lastHole = 0;
 let points = 0;
