@@ -97,7 +97,6 @@ button{
   display: flex;
   flex-wrap: wrap;
   background-repeat: no-repeat;
-  position: relative;
 }
 
 
