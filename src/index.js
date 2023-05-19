@@ -68,32 +68,32 @@ function setDelay(difficulty) {
  * const holes = document.querySelectorAll('.hole');
  * chooseHole(holes) //> returns one of the 9 holes that you defined
  */
-function chooseHole(holes) {
- const idx = randomInteger(0,8)
-const hole = holes[idx];
-if(hole === lastHole){
-   return chooseHole(holes);
-  }
-  lastHole = hole;
-  return hole;
-}
-
 // function chooseHole(holes) {
-
-//   let idx = Math.floor(Math.random() * 9);
-
-//   const hole = holes[idx];
-
-//   if (hole === lastHole) {
-//    console.log('same hole')
-//     chooseHole(holes);
-//   };
-
-//   if (hole !== lastHole) {
-//     lastHole = hole;
-//     return hole;
+//  const idx = randomInteger(0,8)
+// const hole = holes[idx];
+// if(hole === lastHole){
+//    return chooseHole(holes);
 //   }
+//   lastHole = hole;
+//   return hole;
 // }
+
+function chooseHole(holes) {
+
+  let idx = Math.floor(Math.random() * 9);
+
+  const hole = holes[idx];
+
+  if (hole === lastHole) {
+   console.log('same hole')
+    chooseHole(holes);
+  };
+
+  if (hole !== lastHole) {
+    lastHole = hole;
+    return hole;
+  }
+}
 
 /**
 *
