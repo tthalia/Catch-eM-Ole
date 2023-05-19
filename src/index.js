@@ -83,11 +83,7 @@ function chooseHole(holes) {
 
 }
 
-//   if (hole !== lastHole) {
-//     lastHole = hole;
-//     return hole;
-//   }
-// }
+
 
 /**
 *
