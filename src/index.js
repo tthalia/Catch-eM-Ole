@@ -78,6 +78,23 @@ if(hole === lastHole){
   return hole;
 }
 
+// function chooseHole(holes) {
+
+//   let idx = Math.floor(Math.random() * 9);
+
+//   const hole = holes[idx];
+
+//   if (hole === lastHole) {
+//    console.log('same hole')
+//     chooseHole(holes);
+//   };
+
+//   if (hole !== lastHole) {
+//     lastHole = hole;
+//     return hole;
+//   }
+// }
+
 /**
 *
 * Calls the showUp function if time > 0 and stops the game if time = 0.
