@@ -146,8 +146,14 @@ function showAndHide(hole, delay){
 *
 */
 function toggleVisibility(hole){
-  hole.classList.toggle("show") 
-  return hole; 
+  if(document.getElementsByClassName('show').length === 0){
+     hole.classList.toggle("show")
+  }
+  else {
+    hole.classList.remove("show")
+  }
+
+ return hole; 
 }
 
 /**
