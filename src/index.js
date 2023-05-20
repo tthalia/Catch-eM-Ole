@@ -8,7 +8,6 @@ const timerDisplay = document.querySelector('#timer');
 
 let time = 0;
 let timer;
-let lastHole = 0;
 let points = 0;
 let difficulty = "hard";
 
@@ -24,7 +23,8 @@ let difficulty = "hard";
 //   return Math.floor(Math.random() * (max - min) + min);
 
 function randomInteger(min, max) {
-return Math.floor(Math.random() * (max - min + 1)) + min;
+return Math.floor(Math.random() * (max - min + 1) + min);
+
  }
 /**
  * Sets the time delay given a difficulty parameter.
@@ -48,9 +48,8 @@ function setDelay(difficulty) {
   } else if(difficulty === 'normal'){
     return 1000
 
-  } else {
-    return randomInteger(600, 1200)
-
+  } else if (difficulty === "hard") {
+    return randomInteger(600, 1200);
   }
 }
 
@@ -71,20 +70,25 @@ function setDelay(difficulty) {
 
 
 function chooseHole(holes) {
-  let lastHole = 0;
+  //console.log('holes 73', holes);
+   let lastHole = 0;
   //chooses random hole div
   let index = randomInteger(0, 8)
   const hole = holes[index]
-//if hole === lastHole , call chooseHole(holes) again
+//if hole === lastHole 
+//then run line 75, line 76, again
 //else, return hole
   if (hole === lastHole) {
- // console.log('same hole', hole)
+  console.log('same hole')
+  //console.log('holes???', holes)
   return chooseHole(holes)
   };
    if(hole !== lastHole) {
+   // console.log('else hole', hole)
     lastHole = hole
-   return hole;
+  return hole;
   }
+
 
 }
 
@@ -101,23 +105,25 @@ function chooseHole(holes) {
 * then it should call the `stopGame()` function. The function also needs to
 * return the timeoutId if the game continues or the string "game stopped"
 * if the game is over.
-*
-* // if time > 0:
-*  //   timeoutId = showUp()
-*  //   return timeoutId
-*  // else
-*  //   gameStopped = stopGame()
-*  //   return gameStopped
 */
-
+// function gameOver() {
+//   // TODO: Write your code here
+//    if (time === 0){
+//     return stopGame()
+//    };
+//   if(time >= 1) {
+//    return showUp()
+//   }
+// }
 
 function gameOver() {
   // TODO: Write your code here
-   if (time === 0){
-    return stopGame()
-   };
-  if(time >= 1) {
-   return showUp()
+  if (time > 0) {
+    return setTimeout(() => {
+      return showUp();
+    }, 0);
+  } else {
+    return stopGame();
   }
 }
 
@@ -144,8 +150,6 @@ function showUp() {
 * the timeoutID
 *
 */
-
-
 function showAndHide(hole, delay){
   toggleVisibility(hole)  
   const timeoutID = setTimeout(() => {
@@ -165,8 +169,6 @@ function showAndHide(hole, delay){
 * a given hole. It returns the hole.
 *
 */
-
-
 function toggleVisibility(hole){
 
  
@@ -181,6 +183,7 @@ function toggleVisibility(hole){
   
 
 }
+
 
 /**
 *
@@ -296,13 +299,24 @@ function stopGame(){
 
 
 
-function startGame() {
+// function startGame() {
+//   setDuration(15);
+//   startTimer();
+//   showUp();
+//   clearScore();
+//   setEventListeners();
+//   return "game started";
+// }
+
+function startGame(){
   setDuration(15);
-  startTimer();
   showUp();
-  clearScore();
   setEventListeners();
+  startTimer();
+  clearScore();
+
   return "game started";
+
 }
 
 startButton.addEventListener("click", startGame);
