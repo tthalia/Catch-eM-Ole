@@ -109,6 +109,8 @@ function chooseHole(holes) {
 *  //   gameStopped = stopGame()
 *  //   return gameStopped
 */
+
+
 function gameOver() {
   // TODO: Write your code here
    if (time === 0){
@@ -142,12 +144,18 @@ function showUp() {
 * the timeoutID
 *
 */
+
+
 function showAndHide(hole, delay){
   toggleVisibility(hole)  
   const timeoutID = setTimeout(() => {
-  toggleVisibility(hole)    
-    gameOver();
-  }, delay); // TODO: change the setTimeout delay to the one provided as a parameter
+    toggleVisibility(hole)  
+    if(stopGame){
+      hole.classList.remove("show")
+      gameOver()
+    } 
+  }, delay); 
+  // TODO: change the setTimeout delay to the one provided as a parameter
   return timeoutID;
 }
 
@@ -157,15 +165,21 @@ function showAndHide(hole, delay){
 * a given hole. It returns the hole.
 *
 */
-function toggleVisibility(hole){
-  if(document.getElementsByClassName('show').length === 0){
-     hole.classList.toggle("show")
-  }
-  else {
-    hole.classList.remove("show")
-  }
 
- return hole; 
+
+function toggleVisibility(hole){
+
+ 
+    if(document.getElementsByClassName('show').length === 0){
+       hole.classList.toggle("show")
+    }
+    else {
+      hole.classList.remove("show")
+    }
+  
+   return hole; 
+  
+
 }
 
 /**
