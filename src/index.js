@@ -71,14 +71,19 @@ function setDelay(difficulty) {
 
 
 function chooseHole(holes) {
+  let lastHole = 0;
+  //chooses random hole div
   let index = randomInteger(0, 8)
   const hole = holes[index]
-
+//if hole === lastHole , call chooseHole(holes) again
+//else, return hole
   if (hole === lastHole) {
+ // console.log('same hole', hole)
   return chooseHole(holes)
-  } else {
-  lastHole = hole;
-  return hole;
+  };
+   if(hole !== lastHole) {
+    lastHole = hole
+   return hole;
   }
 
 }
@@ -106,11 +111,11 @@ function chooseHole(holes) {
 */
 function gameOver() {
   // TODO: Write your code here
-   if (time > 0){
-    return showUp()
-   }
-  else {
-   return stopGame()
+   if (time === 0){
+    return stopGame()
+   };
+  if(time >= 1) {
+   return showUp()
   }
 }
 
